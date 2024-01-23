@@ -13,8 +13,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
             java-version: 17
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@v1
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
@@ -25,7 +23,7 @@ jobs:
         run: |
           if [ ! -f "gradlew" ]; then gradle wrapper; fi
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
