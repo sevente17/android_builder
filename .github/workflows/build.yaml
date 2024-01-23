@@ -12,7 +12,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 17
+            java-version: 17
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@lastest
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
