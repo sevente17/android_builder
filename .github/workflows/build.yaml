@@ -9,10 +9,8 @@ jobs:
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-            java-version: 16
+      - name: Set up gradle
+        uses: gradle/gradle-build-action@v2
       - id: get-project
         name: Get project name
         run: echo "::set-output name=PROJECT::$(cat project-to-build)"
