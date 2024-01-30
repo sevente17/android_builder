@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
@@ -20,8 +20,7 @@ jobs:
         run: git clone --depth=1 ${{ steps.get-project.outputs.PROJECT }} project
       - name: Build the app
         working-directory: ./project
-        run: |
-          ./gradlew.bat assembleRelease
+        run: chmod +x ./gradlew&&bash ./gradlew assembleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
