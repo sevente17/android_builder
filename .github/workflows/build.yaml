@@ -21,7 +21,7 @@ jobs:
       - name: Build the app
         working-directory: ./project
         run: |
-          .\gradle.bat assembleRelease
+          ./gradlew.bat assembleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
