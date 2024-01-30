@@ -21,9 +21,7 @@ jobs:
       - name: Build the app
         working-directory: ./project
         run: |
-          if [ ! -f "gradlew" ]; then gradle wrapper; fi
-          chmod +x gradlew
-          ./gradlew assembleRelease
+          gradle.bat assembleRelease
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
