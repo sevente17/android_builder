@@ -20,7 +20,7 @@ jobs:
         run: git clone --depth=1 ${{ steps.get-project.outputs.PROJECT }} project
       - name: Build the app
         working-directory: ./project
-        run: chmod +x ./gradlew&&bash ./gradlew assembleRelease
+        run: chmod +x ./gradlew&&bash ./gradlew assemble
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
